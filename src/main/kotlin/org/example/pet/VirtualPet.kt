@@ -44,6 +44,8 @@ class VirtualPet(
      * Plays with the pet, spending energy to improve its mood.
      */
     fun play() {
+        if (energy < PLAY_ENERGY_COST) return
+
         energy = (energy - PLAY_ENERGY_COST).coerceAtLeast(0)
         happiness = (happiness + PLAY_HAPPINESS_GAIN).coerceAtMost(MAX_HUNGER)
     }
