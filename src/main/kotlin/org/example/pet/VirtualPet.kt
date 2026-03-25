@@ -29,6 +29,8 @@ class VirtualPet(
      */
     fun tick() {
         hunger = (hunger + TICK_HUNGER_INCREASE).coerceAtMost(MAX_HUNGER)
+        happiness = (happiness - TICK_HAPPINESS_DECREASE).coerceAtLeast(0)
+        energy = (energy - TICK_ENERGY_DECREASE).coerceAtLeast(0)
     }
 
     /**
@@ -47,6 +49,8 @@ class VirtualPet(
         const val MAX_HUNGER: Int = 100
 
         private const val FEED_HUNGER_REDUCTION: Int = 5
+        private const val TICK_ENERGY_DECREASE: Int = 1
+        private const val TICK_HAPPINESS_DECREASE: Int = 1
         private const val TICK_HUNGER_INCREASE: Int = 1
     }
 }
