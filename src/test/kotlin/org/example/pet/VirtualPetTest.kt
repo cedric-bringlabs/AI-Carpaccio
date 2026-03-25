@@ -243,10 +243,14 @@ class VirtualPetTest {
         assertEquals("happy", pet.mood())
     }
 
-    @Ignore
     @Test
     fun mood_prefers_tired_when_multiple_rules_match() {
-        TODO("Test to be implemented in a later commit.")
+        val pet = VirtualPet(name = "Fido")
+        repeat(81) {
+            pet.tick()
+        }
+
+        assertEquals("tired", pet.mood())
     }
 
     @Ignore
