@@ -86,10 +86,15 @@ class VirtualPetTest {
         assertEquals(99, pet.energy)
     }
 
-    @Ignore
     @Test
     fun tick_does_not_reduce_happiness_or_energy_below_zero() {
-        TODO("Test to be implemented in a later commit.")
+        val pet = VirtualPet(name = "Fido")
+        repeat(150) {
+            pet.tick()
+        }
+
+        assertEquals(0, pet.happiness)
+        assertEquals(0, pet.energy)
     }
 
     @Ignore
