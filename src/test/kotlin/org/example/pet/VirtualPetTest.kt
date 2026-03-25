@@ -304,10 +304,11 @@ class VirtualPetTest {
         TODO("Test to be implemented in a later commit.")
     }
 
-    @Ignore
     @Test
     fun sleeping_returns_the_current_mood_after_a_successful_action() {
-        TODO("Test to be implemented in a later commit.")
+        val pet = VirtualPet(name = "Fido")
+
+        assertEquals("happy", pet.sleep())
     }
 
     @Ignore
