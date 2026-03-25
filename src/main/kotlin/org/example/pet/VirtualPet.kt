@@ -15,29 +15,29 @@ class VirtualPet(
     /**
      * The pet's current happiness level.
      */
-    var happiness: Int = MAX_HUNGER
+    var happiness: Int = MAX_STAT
         private set
 
     /**
      * The pet's current energy level.
      */
-    var energy: Int = MAX_HUNGER
+    var energy: Int = MAX_STAT
         private set
 
     /**
      * Advances the pet by a single world tick, making it hungrier.
      */
     fun tick() {
-        hunger = (hunger + TICK_HUNGER_INCREASE).coerceAtMost(MAX_HUNGER)
-        happiness = (happiness - TICK_HAPPINESS_DECREASE).coerceAtLeast(0)
-        energy = (energy - TICK_ENERGY_DECREASE).coerceAtLeast(0)
+        hunger = increaseStat(hunger, TICK_HUNGER_INCREASE)
+        happiness = decreaseStat(happiness, TICK_HAPPINESS_DECREASE)
+        energy = decreaseStat(energy, TICK_ENERGY_DECREASE)
     }
 
     /**
      * Feeds the pet, reducing hunger without going below zero.
      */
     fun feed() {
-        hunger = (hunger - FEED_HUNGER_REDUCTION).coerceAtLeast(0)
+        hunger = decreaseStat(hunger, FEED_HUNGER_REDUCTION)
     }
 
     /**
@@ -46,8 +46,8 @@ class VirtualPet(
     fun play() {
         if (energy < PLAY_ENERGY_COST) return
 
-        energy = (energy - PLAY_ENERGY_COST).coerceAtLeast(0)
-        happiness = (happiness + PLAY_HAPPINESS_GAIN).coerceAtMost(MAX_HUNGER)
+        energy = decreaseStat(energy, PLAY_ENERGY_COST)
+        happiness = increaseStat(happiness, PLAY_HAPPINESS_GAIN)
     }
 
     /**
@@ -56,18 +56,18 @@ class VirtualPet(
     fun sleep() {
         if (happiness < SLEEP_HAPPINESS_COST) return
 
-        energy = (energy + SLEEP_ENERGY_GAIN).coerceAtMost(MAX_HUNGER)
-        happiness = (happiness - SLEEP_HAPPINESS_COST).coerceAtLeast(0)
+        energy = increaseStat(energy, SLEEP_ENERGY_GAIN)
+        happiness = decreaseStat(happiness, SLEEP_HAPPINESS_COST)
     }
 
     /**
      * Returns a concise snapshot of the pet's current state.
      */
     fun status(): String =
-        "$name: hunger=$hunger/$MAX_HUNGER, happiness=$happiness/$MAX_HUNGER, energy=$energy/$MAX_HUNGER"
+        "$name: hunger=$hunger/$MAX_STAT, happiness=$happiness/$MAX_STAT, energy=$energy/$MAX_STAT"
 
     companion object {
-        const val MAX_HUNGER: Int = 100
+        const val MAX_STAT: Int = 100
 
         private const val FEED_HUNGER_REDUCTION: Int = 5
         private const val PLAY_ENERGY_COST: Int = 2
@@ -78,4 +78,10 @@ class VirtualPet(
         private const val TICK_HAPPINESS_DECREASE: Int = 1
         private const val TICK_HUNGER_INCREASE: Int = 1
     }
+
+    private fun increaseStat(currentValue: Int, amount: Int): Int =
+        (currentValue + amount).coerceAtMost(MAX_STAT)
+
+    private fun decreaseStat(currentValue: Int, amount: Int): Int =
+        (currentValue - amount).coerceAtLeast(0)
 }

@@ -38,6 +38,19 @@ class VirtualPetTest {
     }
 
     @Test
+    fun feeding_does_not_change_happiness_or_energy() {
+        val pet = VirtualPet(name = "Fido")
+        repeat(10) {
+            pet.tick()
+        }
+
+        pet.feed()
+
+        assertEquals(90, pet.happiness)
+        assertEquals(90, pet.energy)
+    }
+
+    @Test
     fun tick_increases_hunger_by_one() {
         val pet = VirtualPet(name = "Fido")
 
@@ -123,6 +136,19 @@ class VirtualPetTest {
     }
 
     @Test
+    fun playing_is_allowed_when_energy_exactly_matches_the_cost() {
+        val pet = VirtualPet(name = "Fido")
+        repeat(98) {
+            pet.tick()
+        }
+
+        pet.play()
+
+        assertEquals(0, pet.energy)
+        assertEquals(7, pet.happiness)
+    }
+
+    @Test
     fun playing_does_not_raise_happiness_above_the_maximum() {
         val pet = VirtualPet(name = "Fido")
         pet.tick()
@@ -131,6 +157,18 @@ class VirtualPetTest {
 
         assertEquals(100, pet.happiness)
         assertEquals(97, pet.energy)
+    }
+
+    @Test
+    fun playing_does_not_change_hunger() {
+        val pet = VirtualPet(name = "Fido")
+        repeat(4) {
+            pet.tick()
+        }
+
+        pet.play()
+
+        assertEquals(4, pet.hunger)
     }
 
     @Test
@@ -160,6 +198,19 @@ class VirtualPetTest {
     }
 
     @Test
+    fun sleeping_is_allowed_when_happiness_exactly_matches_the_cost() {
+        val pet = VirtualPet(name = "Fido")
+        repeat(98) {
+            pet.tick()
+        }
+
+        pet.sleep()
+
+        assertEquals(0, pet.happiness)
+        assertEquals(7, pet.energy)
+    }
+
+    @Test
     fun sleeping_does_not_raise_energy_above_the_maximum() {
         val pet = VirtualPet(name = "Fido")
         repeat(3) {
@@ -170,6 +221,18 @@ class VirtualPetTest {
 
         assertEquals(95, pet.happiness)
         assertEquals(100, pet.energy)
+    }
+
+    @Test
+    fun sleeping_does_not_change_hunger() {
+        val pet = VirtualPet(name = "Fido")
+        repeat(4) {
+            pet.tick()
+        }
+
+        pet.sleep()
+
+        assertEquals(4, pet.hunger)
     }
 
 }
