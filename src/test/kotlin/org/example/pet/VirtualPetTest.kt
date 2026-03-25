@@ -25,10 +25,16 @@ class VirtualPetTest {
         kotlin.test.assertEquals(3, pet.hunger)
     }
 
-    @Ignore
     @Test
     fun feeding_does_not_reduce_hunger_below_zero() {
-        TODO("Test to be implemented in a later commit.")
+        val pet = VirtualPet(name = "Fido")
+        repeat(3) {
+            pet.tick()
+        }
+
+        pet.feed()
+
+        kotlin.test.assertEquals(0, pet.hunger)
     }
 
     @Test
