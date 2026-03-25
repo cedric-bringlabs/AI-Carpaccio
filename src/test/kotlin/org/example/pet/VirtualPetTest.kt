@@ -34,10 +34,15 @@ class VirtualPetTest {
         kotlin.test.assertEquals(1, pet.hunger)
     }
 
-    @Ignore
     @Test
     fun hunger_does_not_exceed_the_maximum() {
-        TODO("Test to be implemented in a later commit.")
+        val pet = VirtualPet(name = "Fido")
+
+        repeat(150) {
+            pet.tick()
+        }
+
+        kotlin.test.assertEquals(100, pet.hunger)
     }
 
     @Ignore

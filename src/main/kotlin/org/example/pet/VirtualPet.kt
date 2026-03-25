@@ -16,6 +16,12 @@ class VirtualPet(
      * Advances the pet by a single world tick, making it hungrier.
      */
     fun tick() {
-        hunger += 1
+        hunger = (hunger + TICK_HUNGER_INCREASE).coerceAtMost(MAX_HUNGER)
+    }
+
+    companion object {
+        const val MAX_HUNGER: Int = 100
+
+        private const val TICK_HUNGER_INCREASE: Int = 1
     }
 }
