@@ -147,10 +147,17 @@ class VirtualPetTest {
         assertEquals(95, pet.energy)
     }
 
-    @Ignore
     @Test
     fun sleeping_is_blocked_when_happiness_is_too_low() {
-        TODO("Test to be implemented in a later commit.")
+        val pet = VirtualPet(name = "Fido")
+        repeat(99) {
+            pet.tick()
+        }
+
+        pet.sleep()
+
+        assertEquals(1, pet.happiness)
+        assertEquals(1, pet.energy)
     }
 
     @Ignore

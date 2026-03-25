@@ -54,6 +54,8 @@ class VirtualPet(
      * Lets the pet sleep, restoring energy while lowering happiness slightly.
      */
     fun sleep() {
+        if (happiness < SLEEP_HAPPINESS_COST) return
+
         energy = (energy + SLEEP_ENERGY_GAIN).coerceAtMost(MAX_HUNGER)
         happiness = (happiness - SLEEP_HAPPINESS_COST).coerceAtLeast(0)
     }
