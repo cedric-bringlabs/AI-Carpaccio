@@ -123,10 +123,15 @@ class VirtualPetTest {
         assertEquals(1, pet.energy)
     }
 
-    @Ignore
     @Test
     fun playing_does_not_raise_happiness_above_the_maximum() {
-        TODO("Test to be implemented in a later commit.")
+        val pet = VirtualPet(name = "Fido")
+        pet.tick()
+
+        pet.play()
+
+        assertEquals(100, pet.happiness)
+        assertEquals(97, pet.energy)
     }
 
     @Ignore
