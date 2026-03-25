@@ -291,10 +291,11 @@ class VirtualPetTest {
         assertEquals("happy", pet.feed())
     }
 
-    @Ignore
     @Test
     fun playing_returns_the_current_mood_after_a_successful_action() {
-        TODO("Test to be implemented in a later commit.")
+        val pet = VirtualPet(name = "Fido")
+
+        assertEquals("happy", pet.play())
     }
 
     @Ignore
