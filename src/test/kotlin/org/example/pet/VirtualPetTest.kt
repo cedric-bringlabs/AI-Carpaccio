@@ -298,10 +298,14 @@ class VirtualPetTest {
         assertEquals("happy", pet.play())
     }
 
-    @Ignore
     @Test
     fun playing_returns_a_blocked_message_when_energy_is_too_low() {
-        TODO("Test to be implemented in a later commit.")
+        val pet = VirtualPet(name = "Fido")
+        repeat(99) {
+            pet.tick()
+        }
+
+        assertEquals("too tired to play", pet.play())
     }
 
     @Test

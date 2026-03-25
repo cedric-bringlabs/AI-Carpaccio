@@ -45,7 +45,7 @@ class VirtualPet(
      * Plays with the pet, spending energy to improve its mood.
      */
     fun play(): String {
-        if (energy < PLAY_ENERGY_COST) return mood()
+        if (energy < PLAY_ENERGY_COST) return "too tired to play"
 
         energy = decreaseStat(energy, PLAY_ENERGY_COST)
         happiness = increaseStat(happiness, PLAY_HAPPINESS_GAIN)
