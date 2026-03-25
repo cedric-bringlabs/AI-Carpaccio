@@ -1,6 +1,6 @@
 package org.example.pet
 
-import kotlin.test.Ignore
+import kotlin.test.assertEquals
 import kotlin.test.Test
 
 class VirtualPetTest {
@@ -9,8 +9,8 @@ class VirtualPetTest {
     fun starts_with_a_name_and_zero_hunger() {
         val pet = VirtualPet(name = "Fido")
 
-        kotlin.test.assertEquals("Fido", pet.name)
-        kotlin.test.assertEquals(0, pet.hunger)
+        assertEquals("Fido", pet.name)
+        assertEquals(0, pet.hunger)
     }
 
     @Test
@@ -22,7 +22,7 @@ class VirtualPetTest {
 
         pet.feed()
 
-        kotlin.test.assertEquals(3, pet.hunger)
+        assertEquals(3, pet.hunger)
     }
 
     @Test
@@ -34,7 +34,7 @@ class VirtualPetTest {
 
         pet.feed()
 
-        kotlin.test.assertEquals(0, pet.hunger)
+        assertEquals(0, pet.hunger)
     }
 
     @Test
@@ -43,7 +43,7 @@ class VirtualPetTest {
 
         pet.tick()
 
-        kotlin.test.assertEquals(1, pet.hunger)
+        assertEquals(1, pet.hunger)
     }
 
     @Test
@@ -54,7 +54,7 @@ class VirtualPetTest {
             pet.tick()
         }
 
-        kotlin.test.assertEquals(100, pet.hunger)
+        assertEquals(100, pet.hunger)
     }
 
     @Test
@@ -64,6 +64,6 @@ class VirtualPetTest {
             pet.tick()
         }
 
-        kotlin.test.assertEquals("Fido: hunger=3/100", pet.status())
+        assertEquals("Fido: hunger=3/100", pet.status())
     }
 }
