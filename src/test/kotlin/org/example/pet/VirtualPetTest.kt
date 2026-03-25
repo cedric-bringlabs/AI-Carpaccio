@@ -25,10 +25,13 @@ class VirtualPetTest {
         TODO("Test to be implemented in a later commit.")
     }
 
-    @Ignore
     @Test
     fun tick_increases_hunger_by_one() {
-        TODO("Test to be implemented in a later commit.")
+        val pet = VirtualPet(name = "Fido")
+
+        pet.tick()
+
+        kotlin.test.assertEquals(1, pet.hunger)
     }
 
     @Ignore

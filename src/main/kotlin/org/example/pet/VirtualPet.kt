@@ -11,4 +11,11 @@ class VirtualPet(
      */
     var hunger: Int = 0
         private set
+
+    /**
+     * Advances the pet by a single world tick, making it hungrier.
+     */
+    fun tick() {
+        hunger += 1
+    }
 }
