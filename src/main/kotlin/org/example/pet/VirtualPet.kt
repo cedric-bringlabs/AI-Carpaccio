@@ -36,8 +36,9 @@ class VirtualPet(
     /**
      * Feeds the pet, reducing hunger without going below zero.
      */
-    fun feed() {
+    fun feed(): String {
         hunger = decreaseStat(hunger, FEED_HUNGER_REDUCTION)
+        return mood()
     }
 
     /**
