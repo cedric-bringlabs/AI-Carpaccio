@@ -68,10 +68,12 @@ class VirtualPetTest {
         assertEquals("Fido: hunger=3/100", pet.status())
     }
 
-    @Ignore
     @Test
     fun starts_with_full_happiness_and_energy() {
-        TODO("Test to be implemented in a later commit.")
+        val pet = VirtualPet(name = "Fido")
+
+        assertEquals(100, pet.happiness)
+        assertEquals(100, pet.energy)
     }
 
     @Ignore

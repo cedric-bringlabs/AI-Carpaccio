@@ -1,7 +1,7 @@
 package org.example.pet
 
 /**
- * Represents a virtual pet with a name and a bounded hunger level.
+ * Represents a virtual pet with a name and bounded stats.
  */
 class VirtualPet(
     val name: String,
@@ -10,6 +10,18 @@ class VirtualPet(
      * The pet's current hunger level.
      */
     var hunger: Int = 0
+        private set
+
+    /**
+     * The pet's current happiness level.
+     */
+    var happiness: Int = MAX_HUNGER
+        private set
+
+    /**
+     * The pet's current energy level.
+     */
+    var energy: Int = MAX_HUNGER
         private set
 
     /**
