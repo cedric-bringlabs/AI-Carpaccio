@@ -253,10 +253,15 @@ class VirtualPetTest {
         assertEquals("tired", pet.mood())
     }
 
-    @Ignore
     @Test
     fun mood_is_hungry_when_hunger_is_high_without_higher_priority_matches() {
-        TODO("Test to be implemented in a later commit.")
+        val pet = VirtualPet(name = "Fido")
+        repeat(81) {
+            pet.tick()
+        }
+        pet.sleep()
+
+        assertEquals("hungry", pet.mood())
     }
 
     @Ignore
