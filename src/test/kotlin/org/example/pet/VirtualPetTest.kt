@@ -1,5 +1,6 @@
 package org.example.pet
 
+import kotlin.test.Ignore
 import kotlin.test.assertEquals
 import kotlin.test.Test
 
@@ -233,6 +234,78 @@ class VirtualPetTest {
         pet.sleep()
 
         assertEquals(4, pet.hunger)
+    }
+
+    @Ignore
+    @Test
+    fun mood_is_happy_by_default() {
+        TODO("Test to be implemented in a later commit.")
+    }
+
+    @Ignore
+    @Test
+    fun mood_prefers_tired_when_multiple_rules_match() {
+        TODO("Test to be implemented in a later commit.")
+    }
+
+    @Ignore
+    @Test
+    fun mood_is_hungry_when_hunger_is_high_without_higher_priority_matches() {
+        TODO("Test to be implemented in a later commit.")
+    }
+
+    @Ignore
+    @Test
+    fun mood_is_energetic_when_energy_is_high_without_happier_matches() {
+        TODO("Test to be implemented in a later commit.")
+    }
+
+    @Ignore
+    @Test
+    fun mood_is_content_when_no_other_rule_matches() {
+        TODO("Test to be implemented in a later commit.")
+    }
+
+    @Ignore
+    @Test
+    fun feeding_returns_the_current_mood() {
+        TODO("Test to be implemented in a later commit.")
+    }
+
+    @Ignore
+    @Test
+    fun playing_returns_the_current_mood_after_a_successful_action() {
+        TODO("Test to be implemented in a later commit.")
+    }
+
+    @Ignore
+    @Test
+    fun playing_returns_a_blocked_message_when_energy_is_too_low() {
+        TODO("Test to be implemented in a later commit.")
+    }
+
+    @Ignore
+    @Test
+    fun sleeping_returns_the_current_mood_after_a_successful_action() {
+        TODO("Test to be implemented in a later commit.")
+    }
+
+    @Ignore
+    @Test
+    fun sleeping_returns_a_blocked_message_when_happiness_is_too_low() {
+        TODO("Test to be implemented in a later commit.")
+    }
+
+    @Ignore
+    @Test
+    fun checking_in_returns_the_current_mood() {
+        TODO("Test to be implemented in a later commit.")
+    }
+
+    @Ignore
+    @Test
+    fun status_reports_mood_and_all_stats() {
+        TODO("Test to be implemented in a later commit.")
     }
 
 }
