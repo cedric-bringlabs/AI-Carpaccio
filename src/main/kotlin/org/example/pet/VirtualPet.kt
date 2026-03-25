@@ -26,6 +26,11 @@ class VirtualPet(
         hunger = (hunger - FEED_HUNGER_REDUCTION).coerceAtLeast(0)
     }
 
+    /**
+     * Returns a concise snapshot of the pet's current state.
+     */
+    fun status(): String = "$name: hunger=$hunger/$MAX_HUNGER"
+
     companion object {
         const val MAX_HUNGER: Int = 100
 

@@ -57,9 +57,13 @@ class VirtualPetTest {
         kotlin.test.assertEquals(100, pet.hunger)
     }
 
-    @Ignore
     @Test
     fun status_reports_name_and_hunger() {
-        TODO("Test to be implemented in a later commit.")
+        val pet = VirtualPet(name = "Fido")
+        repeat(3) {
+            pet.tick()
+        }
+
+        kotlin.test.assertEquals("Fido: hunger=3/100", pet.status())
     }
 }
