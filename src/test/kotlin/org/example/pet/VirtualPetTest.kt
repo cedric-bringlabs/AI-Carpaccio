@@ -160,10 +160,17 @@ class VirtualPetTest {
         assertEquals(1, pet.energy)
     }
 
-    @Ignore
     @Test
     fun sleeping_does_not_raise_energy_above_the_maximum() {
-        TODO("Test to be implemented in a later commit.")
+        val pet = VirtualPet(name = "Fido")
+        repeat(3) {
+            pet.tick()
+        }
+
+        pet.sleep()
+
+        assertEquals(95, pet.happiness)
+        assertEquals(100, pet.energy)
     }
 
     @Ignore
