@@ -41,6 +41,14 @@ class VirtualPet(
     }
 
     /**
+     * Plays with the pet, spending energy to improve its mood.
+     */
+    fun play() {
+        energy = (energy - PLAY_ENERGY_COST).coerceAtLeast(0)
+        happiness = (happiness + PLAY_HAPPINESS_GAIN).coerceAtMost(MAX_HUNGER)
+    }
+
+    /**
      * Returns a concise snapshot of the pet's current state.
      */
     fun status(): String = "$name: hunger=$hunger/$MAX_HUNGER"
@@ -49,6 +57,8 @@ class VirtualPet(
         const val MAX_HUNGER: Int = 100
 
         private const val FEED_HUNGER_REDUCTION: Int = 5
+        private const val PLAY_ENERGY_COST: Int = 2
+        private const val PLAY_HAPPINESS_GAIN: Int = 5
         private const val TICK_ENERGY_DECREASE: Int = 1
         private const val TICK_HAPPINESS_DECREASE: Int = 1
         private const val TICK_HUNGER_INCREASE: Int = 1

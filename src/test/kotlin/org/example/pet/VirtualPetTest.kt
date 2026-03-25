@@ -97,10 +97,17 @@ class VirtualPetTest {
         assertEquals(0, pet.energy)
     }
 
-    @Ignore
     @Test
     fun playing_increases_happiness_and_costs_energy() {
-        TODO("Test to be implemented in a later commit.")
+        val pet = VirtualPet(name = "Fido")
+        repeat(10) {
+            pet.tick()
+        }
+
+        pet.play()
+
+        assertEquals(95, pet.happiness)
+        assertEquals(88, pet.energy)
     }
 
     @Ignore
