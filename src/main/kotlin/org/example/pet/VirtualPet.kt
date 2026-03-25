@@ -51,6 +51,14 @@ class VirtualPet(
     }
 
     /**
+     * Lets the pet sleep, restoring energy while lowering happiness slightly.
+     */
+    fun sleep() {
+        energy = (energy + SLEEP_ENERGY_GAIN).coerceAtMost(MAX_HUNGER)
+        happiness = (happiness - SLEEP_HAPPINESS_COST).coerceAtLeast(0)
+    }
+
+    /**
      * Returns a concise snapshot of the pet's current state.
      */
     fun status(): String = "$name: hunger=$hunger/$MAX_HUNGER"
@@ -61,6 +69,8 @@ class VirtualPet(
         private const val FEED_HUNGER_REDUCTION: Int = 5
         private const val PLAY_ENERGY_COST: Int = 2
         private const val PLAY_HAPPINESS_GAIN: Int = 5
+        private const val SLEEP_ENERGY_GAIN: Int = 5
+        private const val SLEEP_HAPPINESS_COST: Int = 2
         private const val TICK_ENERGY_DECREASE: Int = 1
         private const val TICK_HAPPINESS_DECREASE: Int = 1
         private const val TICK_HUNGER_INCREASE: Int = 1
