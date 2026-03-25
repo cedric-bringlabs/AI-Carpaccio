@@ -236,10 +236,11 @@ class VirtualPetTest {
         assertEquals(4, pet.hunger)
     }
 
-    @Ignore
     @Test
     fun mood_is_happy_by_default() {
-        TODO("Test to be implemented in a later commit.")
+        val pet = VirtualPet(name = "Fido")
+
+        assertEquals("happy", pet.mood())
     }
 
     @Ignore

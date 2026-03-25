@@ -60,6 +60,14 @@ class VirtualPet(
         happiness = decreaseStat(happiness, SLEEP_HAPPINESS_COST)
     }
 
+    fun mood(): String = when {
+        energy < 20 -> "tired"
+        hunger > 80 -> "hungry"
+        happiness > 80 -> "happy"
+        energy > 80 -> "energetic"
+        else -> "content"
+    }
+
     /**
      * Returns a concise snapshot of the pet's current state.
      */
