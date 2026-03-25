@@ -1,6 +1,5 @@
 package org.example.pet
 
-import kotlin.test.Ignore
 import kotlin.test.assertEquals
 import kotlin.test.Test
 
@@ -59,13 +58,13 @@ class VirtualPetTest {
     }
 
     @Test
-    fun status_reports_name_and_hunger() {
+    fun status_reports_hunger_happiness_and_energy() {
         val pet = VirtualPet(name = "Fido")
         repeat(3) {
             pet.tick()
         }
 
-        assertEquals("Fido: hunger=3/100", pet.status())
+        assertEquals("Fido: hunger=3/100, happiness=97/100, energy=97/100", pet.status())
     }
 
     @Test
@@ -173,9 +172,4 @@ class VirtualPetTest {
         assertEquals(100, pet.energy)
     }
 
-    @Ignore
-    @Test
-    fun status_reports_hunger_happiness_and_energy() {
-        TODO("Test to be implemented in a later commit.")
-    }
 }

@@ -63,7 +63,8 @@ class VirtualPet(
     /**
      * Returns a concise snapshot of the pet's current state.
      */
-    fun status(): String = "$name: hunger=$hunger/$MAX_HUNGER"
+    fun status(): String =
+        "$name: hunger=$hunger/$MAX_HUNGER, happiness=$happiness/$MAX_HUNGER, energy=$energy/$MAX_HUNGER"
 
     companion object {
         const val MAX_HUNGER: Int = 100
