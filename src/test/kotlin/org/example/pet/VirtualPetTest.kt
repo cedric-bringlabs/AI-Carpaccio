@@ -274,10 +274,14 @@ class VirtualPetTest {
         assertEquals("energetic", pet.mood())
     }
 
-    @Ignore
     @Test
     fun mood_is_content_when_no_other_rule_matches() {
-        TODO("Test to be implemented in a later commit.")
+        val pet = VirtualPet(name = "Fido")
+        repeat(30) {
+            pet.tick()
+        }
+
+        assertEquals("content", pet.mood())
     }
 
     @Ignore
