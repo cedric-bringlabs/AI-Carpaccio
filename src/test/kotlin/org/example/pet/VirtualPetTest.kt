@@ -185,7 +185,7 @@ class VirtualPetTest {
     }
 
     @Test
-    fun sleeping_is_blocked_when_happiness_is_too_low() {
+    fun sleeping_is_allowed_when_happiness_is_too_low() {
         val pet = VirtualPet(name = "Fido")
         repeat(99) {
             pet.tick()
@@ -193,8 +193,8 @@ class VirtualPetTest {
 
         pet.sleep()
 
-        assertEquals(1, pet.happiness)
-        assertEquals(1, pet.energy)
+        assertEquals(0, pet.happiness)
+        assertEquals(6, pet.energy)
     }
 
     @Test
@@ -315,13 +315,25 @@ class VirtualPetTest {
     }
 
     @Test
-    fun sleeping_returns_a_blocked_message_when_happiness_is_too_low() {
+    fun sleeping_returns_the_current_mood_when_happiness_is_too_low() {
         val pet = VirtualPet(name = "Fido")
         repeat(99) {
             pet.tick()
         }
 
-        assertEquals("too unhappy to sleep", pet.sleep())
+        assertEquals("tired", pet.sleep())
+    }
+
+    @Test
+    fun sleeping_can_recover_a_pet_from_total_exhaustion() {
+        val pet = VirtualPet(name = "Fido")
+        repeat(100) {
+            pet.tick()
+        }
+
+        assertEquals("tired", pet.sleep())
+        assertEquals(5, pet.energy)
+        assertEquals(0, pet.happiness)
     }
 
     @Test
