@@ -5,10 +5,12 @@ import kotlin.test.Test
 
 class VirtualPetTest {
 
-    @Ignore
     @Test
     fun starts_with_a_name_and_zero_hunger() {
-        TODO("Test to be implemented in a later commit.")
+        val pet = VirtualPet(name = "Fido")
+
+        kotlin.test.assertEquals("Fido", pet.name)
+        kotlin.test.assertEquals(0, pet.hunger)
     }
 
     @Ignore
