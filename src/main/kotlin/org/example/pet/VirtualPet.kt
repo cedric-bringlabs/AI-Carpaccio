@@ -19,9 +19,17 @@ class VirtualPet(
         hunger = (hunger + TICK_HUNGER_INCREASE).coerceAtMost(MAX_HUNGER)
     }
 
+    /**
+     * Feeds the pet, reducing hunger without going below zero.
+     */
+    fun feed() {
+        hunger = (hunger - FEED_HUNGER_REDUCTION).coerceAtLeast(0)
+    }
+
     companion object {
         const val MAX_HUNGER: Int = 100
 
+        private const val FEED_HUNGER_REDUCTION: Int = 5
         private const val TICK_HUNGER_INCREASE: Int = 1
     }
 }
