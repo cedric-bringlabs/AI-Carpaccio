@@ -1,5 +1,6 @@
 package org.example.pet
 
+import kotlin.test.Ignore
 import kotlin.test.assertEquals
 import kotlin.test.Test
 
@@ -65,5 +66,65 @@ class VirtualPetTest {
         }
 
         assertEquals("Fido: hunger=3/100", pet.status())
+    }
+
+    @Ignore
+    @Test
+    fun starts_with_full_happiness_and_energy() {
+        TODO("Test to be implemented in a later commit.")
+    }
+
+    @Ignore
+    @Test
+    fun tick_reduces_happiness_and_energy_by_one() {
+        TODO("Test to be implemented in a later commit.")
+    }
+
+    @Ignore
+    @Test
+    fun tick_does_not_reduce_happiness_or_energy_below_zero() {
+        TODO("Test to be implemented in a later commit.")
+    }
+
+    @Ignore
+    @Test
+    fun playing_increases_happiness_and_costs_energy() {
+        TODO("Test to be implemented in a later commit.")
+    }
+
+    @Ignore
+    @Test
+    fun playing_is_blocked_when_energy_is_too_low() {
+        TODO("Test to be implemented in a later commit.")
+    }
+
+    @Ignore
+    @Test
+    fun playing_does_not_raise_happiness_above_the_maximum() {
+        TODO("Test to be implemented in a later commit.")
+    }
+
+    @Ignore
+    @Test
+    fun sleeping_restores_energy_and_reduces_happiness() {
+        TODO("Test to be implemented in a later commit.")
+    }
+
+    @Ignore
+    @Test
+    fun sleeping_is_blocked_when_happiness_is_too_low() {
+        TODO("Test to be implemented in a later commit.")
+    }
+
+    @Ignore
+    @Test
+    fun sleeping_does_not_raise_energy_above_the_maximum() {
+        TODO("Test to be implemented in a later commit.")
+    }
+
+    @Ignore
+    @Test
+    fun status_reports_hunger_happiness_and_energy() {
+        TODO("Test to be implemented in a later commit.")
     }
 }
