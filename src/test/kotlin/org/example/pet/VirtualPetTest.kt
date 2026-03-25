@@ -264,10 +264,14 @@ class VirtualPetTest {
         assertEquals("hungry", pet.mood())
     }
 
-    @Ignore
     @Test
     fun mood_is_energetic_when_energy_is_high_without_happier_matches() {
-        TODO("Test to be implemented in a later commit.")
+        val pet = VirtualPet(name = "Fido")
+        repeat(10) {
+            pet.sleep()
+        }
+
+        assertEquals("energetic", pet.mood())
     }
 
     @Ignore
