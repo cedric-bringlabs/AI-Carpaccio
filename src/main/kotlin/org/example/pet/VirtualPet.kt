@@ -71,6 +71,8 @@ class VirtualPet(
         else -> "content"
     }
 
+    fun checkIn(): String = mood()
+
     /**
      * Returns a concise snapshot of the pet's current state.
      */

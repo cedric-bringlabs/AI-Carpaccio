@@ -325,10 +325,11 @@ class VirtualPetTest {
         assertEquals("too unhappy to sleep", pet.sleep())
     }
 
-    @Ignore
     @Test
     fun checking_in_returns_the_current_mood() {
-        TODO("Test to be implemented in a later commit.")
+        val pet = VirtualPet(name = "Fido")
+
+        assertEquals("happy", pet.checkIn())
     }
 
     @Ignore
