@@ -77,7 +77,7 @@ class VirtualPet(
      * Returns a concise snapshot of the pet's current state.
      */
     fun status(): String =
-        "$name: hunger=$hunger/$MAX_STAT, happiness=$happiness/$MAX_STAT, energy=$energy/$MAX_STAT"
+        "$name: mood=${mood()}, hunger=$hunger/$MAX_STAT, happiness=$happiness/$MAX_STAT, energy=$energy/$MAX_STAT"
 
     companion object {
         const val MAX_STAT: Int = 100
